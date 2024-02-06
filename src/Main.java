@@ -25,17 +25,7 @@ public class Main {
         c1order.add(order1);
         c1order.add(order2);
         c1.setOrderList(c1order);
-
-
-        System.out.println("Orders");
-
-        for(Order order: c1.getOrderList()){
-            System.out.println("OrderId: "+order.getOrderId());
-            System.out.println("Name \t \t \t \t Quantity");
-            for(ItemOrder itemOrder: order.getItemOrderList()){
-                System.out.println(itemOrder.getItem().getName()+"\t \t \t \t"+itemOrder.getQuantity());
-
-            }
-        }
+        c1.getAllOrders();
+        c1.getTotalMoneySpent();
     }
 }

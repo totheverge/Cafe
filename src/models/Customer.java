@@ -20,4 +20,30 @@ public class Customer {
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
     }
+
+    public void getAllOrders(){
+
+
+        System.out.println("Orders");
+
+        for(Order order: this.getOrderList()){
+            System.out.println("OrderId: "+order.getOrderId());
+            System.out.println("Name \t \t \t \t Quantity");
+            for(ItemOrder itemOrder: order.getItemOrderList()){
+                System.out.println(itemOrder.getItem().getName()+"\t \t \t \t"+itemOrder.getQuantity());
+
+            }
+    }
+}
+public void getTotalMoneySpent(){
+        int totalMoneySpent=0;
+    for(Order order: this.getOrderList()){
+        int totalMoneySpentForOrder = 0;
+        for(ItemOrder itemOrder: order.getItemOrderList()){
+            totalMoneySpentForOrder += itemOrder.getQuantity()*itemOrder.getItem().getPrice();
+        }
+        totalMoneySpent += totalMoneySpentForOrder;
+    }
+    System.out.println("Total Money Spent:"+totalMoneySpent);
+}
 }
